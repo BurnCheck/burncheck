@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>BurnCheck.ai | AI Cost Auditor & Token Price Comparison Tool</title>
+  <meta name="description" content="Stop overpaying for AI. Audit your API costs across GPT-4o, Claude 3.5, and Llama-3 instantly. Find the cheapest model for your project and maximize your profit margins.">
+  <meta name="keywords" content="AI cost calculator, GPT-4o vs Claude 3.5 price, reduce AI API bills, token cost estimator, AI profit optimizer, BurnCheck">
+
+  <!-- Social Media Preview (Open Graph) -->
+  <meta property="og:title" content="BurnCheck.ai | Stop Burning Money on Overpriced AI">
+  <meta property="og:description" content="Calculate your AI savings instantly. Compare prices across all major models in one click.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vercel.app">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-white min-h-screen antialiased">
+  <!-- Header -->
+  <div class="container mx-auto px-4 py-12 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">BurnCheck.ai</h1>
+    <h2 class="text-2xl md:text-4xl font-bold mb-6 text-red-500">Stop Burning Money on Overpriced AI.</h2>
+    <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">Paste your project text below. We'll audit your costs across top models and show you exactly how to increase your margins by switching to more efficient AI.</p>
+  </div>
+
+  <!-- Core Tool -->
+  <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
+      <h3 class="text-2xl font-bold mb-6">AI Cost Auditor</h3>
+      <!-- Input Area -->
+      <div class="mb-6">
+        <textarea id="promptInput" class="w-full h-40 p-4 bg-slate-950 border border-slate-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y" placeholder="Paste your project text here (e.g., blog post, code, support ticket, AI prompt, etc.)"></textarea>
+        <div class="flex justify-between items-center mt-3">
+          <div class="text-sm text-slate-400">
+            <span id="wordCount">Words: 0</span> | <span id="tokenCount">Tokens: 0</span>
+          </div>
+          <button id="pasteBtn" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm font-medium transition">Paste Text</button>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b border-slate-800">
+              <th class="py-3 px-4 text-sm font-semibold text-slate-300">Model</th>
+              <th class="py-3 px-4 text-sm font-semibold text-slate-300">Price / 1M Tokens</th>
+              <th class="py-3 px-4 text-sm font-semibold text-slate-300">Est. Cost (Per Task)</th>
+              <th class="py-3 px-4 text-sm font-semibold text-slate-300">Annual Cost (Daily Use)</th>
+              <th class="py-3 px-4 text-sm font-semibold text-slate-300">Annual Waste</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Affiliate Grid -->
+  <div class="container mx-auto px-4 py-16 max-w-5xl">
+    <h3 class="text-2xl font-bold mb-8 text-center">Recommended Cost-Saving Tools</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition">
+        <div class="h-24 bg-slate-800 rounded-lg mb-4 flex items-center justify-center text-slate-500 text-sm">Tool Logo</div>
+        <h4 class="text-lg font-semibold mb-2">AI Cost Monitor</h4>
+        <p class="text-slate-400 text-sm mb-4">Track and optimize your AI spend across all providers in real-time.</p>
+        <a href="#" class="block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm transition">Learn More</a>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition">
+        <div class="h-24 bg-slate-800 rounded-lg mb-4 flex items-center justify-center text-slate-500 text-sm">Tool Logo</div>
+        <h4 class="text-lg font-semibold mb-2">Prompt Optimizer</h4>
+        <p class="text-slate-400 text-sm mb-4">Reduce token usage by 30% with automated prompt compression.</p>
+        <a href="#" class="block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm transition">Learn More</a>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition">
+        <div class="h-24 bg-slate-800 rounded-lg mb-4 flex items-center justify-center text-slate-500 text-sm">Tool Logo</div>
+        <h4 class="text-lg font-semibold mb-2">Model Router</h4>
+        <p class="text-slate-400 text-sm mb-4">Automatically route tasks to the cheapest model that meets quality needs.</p>
+        <a href="#" class="block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm transition">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GDPR Lead Capture (Formspree Integrated) -->
+  <div class="container mx-auto px-4 py-16 max-w-md">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
+      <h3 class="text-2xl font-bold mb-2 text-center">Get the Weekly AI Savings Report</h3>
+      <p class="text-slate-400 text-sm mb-6 text-center">Join 1,000+ founders saving 40%+ on AI costs.</p>
+      
+      <!-- Formspree Signup Form -->
+      <form action="https://formspree.io/f/mrernerk" method="POST" class="flex flex-col space-y-4">
+        <input type="email" name="email" placeholder="Enter your business email" required 
+               class="p-3 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        
+        <div class="flex items-start">
+          <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-2">
+          <label for="consent" class="text-xs text-slate-400">
+            I agree to receive the Weekly AI Savings Report. I can unsubscribe at any time.
+          </label>
+        </div>
+
+        <button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 rounded transition duration-200">
+          Get My Free Audit
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container mx-auto px-4 py-8 text-center text-slate-500 text-sm">
+    <p>© 2026 BurnCheck.ai. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const promptInput = document.getElementById('promptInput');
+    const pasteBtn = document.getElementById('pasteBtn');
+    const wordCountEl = document.getElementById('wordCount');
+    const tokenCountEl = document.getElementById('tokenCount');
+    const resultsBody = document.getElementById('resultsBody');
+
+    const models = [
+      { id: 'gpt4o', name: 'GPT-4o', pricePerM: 5.00, badge: null },
+      { id: 'claude', name: 'Claude 3.5 Sonnet', pricePerM: 3.00, badge: null },
+      { id: 'gpt4omini', name: 'GPT-4o Mini', pricePerM: 0.15, badge: 'Smart Choice' },
+      { id: 'llama3', name: 'Llama-3 (Groq)', pricePerM: 0.05, badge: 'Maximum Profit' }
+    ];
+
+    const formatUSD = (num) => num === 0 ? '$0.00' : num.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 6 });
+
+    const updateTable = () => {
+      const text = promptInput.value.trim();
+      const words = text.length === 0 ? 0 : text.split(/\s+/).filter(w => w.length > 0).length;
+      wordCountEl.textContent = `Words: ${words}`;
+      const tokens = words * 1.33;
+      tokenCountEl.textContent = `Tokens: ${tokens.toFixed(0)}`;
+
+      const llamaAnnual = tokens > 0 ? (tokens / 1e6) * 0.05 * 365 : 0;
+      resultsBody.innerHTML = '';
+
+      models.forEach(model => {
+        const costPerTask = tokens > 0 ? (tokens / 1e6) * model.pricePerM : 0;
+        const annualCost = costPerTask * 365;
+        const annualWaste = annualCost - llamaAnnual;
+
+        const tr = document.createElement('tr');
+        tr.className = 'border-b border-slate-800 hover:bg-slate-800/50 transition';
+
+        const modelCell = document.createElement('td');
+        modelCell.className = 'py-4 px-4';
+        modelCell.innerHTML = `<span class="font-medium">${model.name}</span>${model.badge ? `<span class="ml-2 px-2 py-1 text-xs rounded ${model.badge === 'Maximum Profit' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}">${model.badge}</span>` : ''}`;
+
+        const priceCell = document.createElement('td');
+        priceCell.className = 'py-4 px-4 text-slate-300';
+        priceCell.textContent = formatUSD(model.pricePerM) + ' / 1M';
+
+        const costCell = document.createElement('td');
+        costCell.className = 'py-4 px-4 text-slate-300';
+        costCell.textContent = formatUSD(costPerTask);
+
+        const annualCell = document.createElement('td');
+        annualCell.className = 'py-4 px-4 text-slate-300';
+        annualCell.textContent = formatUSD(annualCost);
+
+        const wasteCell = document.createElement('td');
+        wasteCell.className = 'py-4 px-4 font-medium';
+        if (annualWaste > 0) {
+          wasteCell.classList.add('text-red-500');
+          wasteCell.textContent = formatUSD(annualWaste);
+        } else {
+          wasteCell.classList.add('text-green-500');
+          wasteCell.textContent = '$0.00';
+        }
+
+        tr.append(modelCell, priceCell, costCell, annualCell, wasteCell);
+        resultsBody.appendChild(tr);
+      });
+    };
+
+    pasteBtn.addEventListener('click', async () => {
+      try {
+        promptInput.value = await navigator.clipboard.readText();
+        updateTable();
+      } catch {
+        alert('Unable to access clipboard. Please paste manually (Ctrl+V / Cmd+V).');
+      }
+    });
+
+    promptInput.addEventListener('input', updateTable);
+    updateTable();
+  </script>
+</body>
+</html>
