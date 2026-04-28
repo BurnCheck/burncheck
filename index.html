@@ -15,6 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vercel.app">
 
+  <script src="https://unpkg.com"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-white min-h-screen antialiased">
@@ -63,19 +64,25 @@
     <h3 class="text-2xl font-bold mb-8 text-center">Recommended Cost-Saving Tools</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition">
-        <div class="h-24 bg-slate-800 rounded-lg mb-4 flex items-center justify-center text-slate-500 text-sm">Tool Logo</div>
+        <div class="h-16 w-16 bg-cyan-500/10 rounded-full mb-6 flex items-center justify-center text-cyan-500">
+          <i data-lucide="zap"></i>
+        </div>
         <h4 class="text-lg font-semibold mb-2">AI Cost Monitor</h4>
         <p class="text-slate-400 text-sm mb-4">Track and optimize your AI spend across all providers in real-time.</p>
         <a href="#" class="block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm transition">Learn More</a>
       </div>
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition">
-        <div class="h-24 bg-slate-800 rounded-lg mb-4 flex items-center justify-center text-slate-500 text-sm">Tool Logo</div>
+       <div class="h-16 w-16 bg-cyan-500/10 rounded-full mb-6 flex items-center justify-center text-cyan-500">
+          <i data-lucide="zap"></i>
+        </div>
         <h4 class="text-lg font-semibold mb-2">Prompt Optimizer</h4>
         <p class="text-slate-400 text-sm mb-4">Reduce token usage by 30% with automated prompt compression.</p>
         <a href="#" class="block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm transition">Learn More</a>
       </div>
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition">
-        <div class="h-24 bg-slate-800 rounded-lg mb-4 flex items-center justify-center text-slate-500 text-sm">Tool Logo</div>
+        <div class="h-16 w-16 bg-cyan-500/10 rounded-full mb-6 flex items-center justify-center text-cyan-500">
+            <i data-lucide="zap"></i>
+        </div>
         <h4 class="text-lg font-semibold mb-2">Model Router</h4>
         <p class="text-slate-400 text-sm mb-4">Automatically route tasks to the cheapest model that meets quality needs.</p>
         <a href="#" class="block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm transition">Learn More</a>
@@ -190,5 +197,13 @@
     promptInput.addEventListener('input', updateTable);
     updateTable();
   </script>
+  <!-- Ensure this script is at the very bottom of your body -->
+<script>
+  // Wait for the browser to finish loading the HTML
+  document.addEventListener("DOMContentLoaded", function() {
+    // Initialize icons
+    lucide.createIcons();
+  });
+</script>
 </body>
 </html>
